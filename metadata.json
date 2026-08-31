@@ -1,0 +1,6 @@
+{
+  "name": "Campus Print Request Management System",
+  "description": "Campus print request management system with complete Student and Admin portals for queue management, shop setup, live pricing matrix, and student directories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
