@@ -4,6 +4,7 @@ import { PrintProvider } from './context/PrintContext.jsx';
 
 // Student Components & Pages
 import StudentLayout from './components/StudentLayout.jsx';
+import Login from './pages/student/Login.jsx';
 import Register from './pages/student/Register.jsx';
 import Dashboard from './pages/student/Dashboard.jsx';
 import NewPrintRequest from './pages/student/NewPrintRequest.jsx';
@@ -27,11 +28,14 @@ export default function App() {
     <PrintProvider>
       <BrowserRouter>
         <Routes>
-          {/* Registration remains available, while the app opens directly in the student panel. */}
+          {/* Public Auth Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/student/login" element={<Login />} />
+          <Route path="/admin/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Open the student panel by default. */}
-          <Route path="/" element={<Navigate to="/student/dashboard" replace />} />
+          {/* Root redirect to Login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
 
           {/* Protected Student Panel Routes */}
           <Route element={<StudentLayout />}>
@@ -62,7 +66,7 @@ export default function App() {
           </Route>
 
           {/* Catch-all fallback */}
-          <Route path="*" element={<Navigate to="/student/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </PrintProvider>
