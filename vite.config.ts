@@ -9,8 +9,13 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
+        // Resolve every React import to the app's installed copy so hooks and
+        // react-dom share the same internal dispatcher in the preview.
+        react: path.resolve(__dirname, 'node_modules/react'),
+        'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+        'react/jsx-runtime': path.resolve(__dirname, 'node_modules/react/jsx-runtime.js'),
+        'react/jsx-dev-runtime': path.resolve(__dirname, 'node_modules/react/jsx-dev-runtime.js'),
       },
-      // Keep hooks and the renderer on one React instance in the Vite preview.
       dedupe: ['react', 'react-dom'],
     },
     server: {
