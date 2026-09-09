@@ -77,7 +77,7 @@ export const Dashboard = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-5">
           <div className="min-w-0">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight truncate">
-              {getGreeting()}, {studentName} 👋
+              {getGreeting()}, {studentName}
             </h1>
             <p className="mt-1 text-blue-100 text-xs sm:text-sm font-normal">
               Manage your campus print queue and collect from the Central Library Xerox center.

@@ -69,7 +69,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
       {/* Sidebar Container */}
       <aside
         id="app-sidebar"
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-white border-r border-slate-200/80 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -77,7 +77,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
         <div>
           <div className="h-16 px-6 flex items-center justify-between border-b border-slate-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-600/20">
                 <Printer className="w-5 h-5" />
               </div>
               <div>
@@ -114,7 +114,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
                       if (onClose) onClose();
                     }}
                     className={({ isActive }) =>
-                      `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                      `flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-all ${
                         isActive
                           ? 'bg-blue-50 text-blue-600 font-semibold'
                           : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'

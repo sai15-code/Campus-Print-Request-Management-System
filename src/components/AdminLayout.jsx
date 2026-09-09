@@ -95,7 +95,7 @@ export const AdminLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row antialiased font-sans">
+    <div className="min-h-screen bg-background text-foreground flex flex-col md:flex-row antialiased font-sans">
       <Toast />
 
       {/* Mobile Header Bar */}
@@ -135,7 +135,7 @@ export const AdminLayout = () => {
 
       {/* Admin Sidebar */}
       <aside
-        className={`fixed md:sticky top-0 left-0 h-screen w-64 bg-white border-r border-slate-200/80 z-50 flex flex-col justify-between transition-transform duration-200 ease-in-out ${
+        className={`fixed md:sticky top-0 left-0 h-screen w-72 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 z-50 flex flex-col justify-between transition-transform duration-200 ease-in-out ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >

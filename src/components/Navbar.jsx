@@ -21,7 +21,7 @@ export const Navbar = ({ onToggleSidebar }) => {
   const breadcrumb = getBreadcrumb();
 
   return (
-    <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 h-16 w-full">
+    <header className="sticky top-0 z-30 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 h-[4.5rem] w-full">
       <div className="h-full px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4 max-w-7xl mx-auto">
         {/* Left: Mobile menu toggle + Sleek Breadcrumb / Title */}
         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
