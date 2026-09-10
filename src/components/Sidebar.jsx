@@ -102,7 +102,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
             <p className="px-3 text-[11px] font-semibold tracking-wider text-slate-400 uppercase mb-2">
               Menu
             </p>
-            <nav className="space-y-1">
+            <nav className="flex flex-col gap-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -116,7 +116,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
                     className={({ isActive }) =>
                       `flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-all ${
                         isActive
-                          ? 'bg-blue-50 text-blue-600 font-semibold'
+                          ? 'bg-indigo-50 text-indigo-700 font-semibold shadow-sm'
                           : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                       }`
                     }
@@ -144,9 +144,9 @@ export const Sidebar = ({ isOpen, onClose }) => {
         </div>
 
         {/* User Card & Logout Bottom Section */}
-        <div className="p-4 border-t border-slate-100 bg-slate-50/50 space-y-3">
+        <div className="flex flex-col gap-3 border-t border-slate-100 bg-slate-50/60 p-4">
           <div className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200/70 shadow-2xs">
-            <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-700">
               {currentUser?.name ? currentUser.name.charAt(0) : 'S'}
             </div>
             <div className="min-w-0 flex-1">

@@ -48,6 +48,16 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+@keyframes dashboard-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-reveal { animation: dashboard-rise 520ms ease-out both; }
+.dashboard-reveal:nth-child(2) { animation-delay: 70ms; }
+.dashboard-reveal:nth-child(3) { animation-delay: 130ms; }
+.dashboard-reveal:nth-child(4) { animation-delay: 190ms; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
