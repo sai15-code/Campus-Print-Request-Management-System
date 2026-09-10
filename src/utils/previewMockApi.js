@@ -42,9 +42,10 @@ export function previewRequest(endpoint, options = {}) {
   if (path === '/health') return response({ status: 'ok', preview: true });
   if (path === '/auth/login' || path === '/auth/student/login') {
     const isAdmin = endpoint.includes('admin') || body.email === DEMO_ADMIN.email;
-    return response({ user: isAdmin ? admin : student, admin: isAdmin ? admin : undefined, token: `preview-${isAdmin ? 'admin' : 'student'}-token` });
+    const user = isAdmin ? { ...admin, role: 'ADMIN' } : { ...student, role: 'STUDENT' };
+    return response({ user, admin: isAdmin ? user : undefined, role: user.role, token: `preview-${isAdmin ? 'admin' : 'student'}-token` });
   }
-  if (path === '/auth/admin/login') return response({ admin, user: admin, token: 'preview-admin-token' });
+  if (path === '/auth/admin/login') return response({ admin: { ...admin, role: 'ADMIN' }, user: { ...admin, role: 'ADMIN' }, role: 'ADMIN', token: 'preview-admin-token' });
   if (path === '/auth/register') {
     student = { ...student, ...body, id: `STU-${Date.now().toString().slice(-4)}`, role: 'Student' };
     students = [student, ...students];
