@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { PrintProvider } from './context/PrintContext.jsx';
 
 // Student Components & Pages
 import StudentLayout from './components/StudentLayout.jsx';
@@ -25,9 +24,8 @@ import AdminProfile from './pages/admin/AdminProfile.jsx';
 
 export default function App() {
   return (
-    <PrintProvider>
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
           {/* Public Auth Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/student/login" element={<Login />} />
@@ -67,8 +65,7 @@ export default function App() {
 
           {/* Catch-all fallback */}
           <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </PrintProvider>
+      </Routes>
+    </BrowserRouter>
   );
 }
