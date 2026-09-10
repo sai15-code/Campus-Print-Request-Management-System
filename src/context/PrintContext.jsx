@@ -9,13 +9,14 @@ import {
   INITIAL_STUDENTS,
 } from '../data/mockData.js';
 
-import api from '../utils/api.js';
+import api, { PREVIEW_MOCKS_ENABLED } from '../utils/api.js';
 
 const PrintContext = createContext(null);
 
 export const PrintProvider = ({ children }) => {
   // 1. Student Authentication State (Isolated in Tab/Storage)
   const [currentUser, setCurrentUser] = useState(() => {
+    if (PREVIEW_MOCKS_ENABLED) return DEMO_STUDENT;
     const token = api.getStudentToken();
     if (!token) return null;
     const saved =
@@ -35,6 +36,7 @@ export const PrintProvider = ({ children }) => {
 
   // 2. Admin Authentication State (Isolated in Tab/Storage)
   const [currentAdmin, setCurrentAdmin] = useState(() => {
+    if (PREVIEW_MOCKS_ENABLED) return DEMO_ADMIN;
     const token = api.getAdminToken();
     if (!token) return null;
     const saved =

@@ -4,6 +4,10 @@
  * Base URL: http://localhost:5000/api
  */
 
+import { PREVIEW_MOCKS_ENABLED, previewRequest } from './previewMockApi.js';
+
+export { PREVIEW_MOCKS_ENABLED };
+
 const API_BASE_URL = import.meta.env?.VITE_API_URL || 'http://localhost:5000/api';
 const STUDENT_TOKEN_KEY = 'campus_student_token';
 const ADMIN_TOKEN_KEY = 'campus_admin_token';
@@ -150,6 +154,10 @@ export function isAuthenticated(role = null) {
  * @returns {Promise<any>} Parsed JSON response data
  */
 export async function request(endpoint, options = {}) {
+  if (PREVIEW_MOCKS_ENABLED) {
+    return previewRequest(endpoint, options);
+  }
+
   const url = `${API_BASE_URL}${endpoint.startsWith('/') ? '' : '/'}${endpoint}`;
 
   const headers = {
